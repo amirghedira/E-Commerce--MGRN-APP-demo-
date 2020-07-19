@@ -9,10 +9,10 @@ import {
     NavbarBrand,
     Navbar,
     NavItem,
-    NavLink,
     Nav,
     Container,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 function IndexNavbar() {
     const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
@@ -27,12 +27,12 @@ function IndexNavbar() {
         const updateNavbarColor = () => {
             if (
                 document.documentElement.scrollTop > 299 ||
-                document.body.scrollTop > 299
+                document.body.scrollTop > 119
             ) {
                 setNavbarColor("");
             } else if (
                 document.documentElement.scrollTop < 300 ||
-                document.body.scrollTop < 300
+                document.body.scrollTop < 120
             ) {
                 setNavbarColor("navbar-transparent");
             }
@@ -50,12 +50,13 @@ function IndexNavbar() {
                 <div className="navbar-translate">
                     <NavbarBrand
                         data-placement="bottom"
-                        href="/index"
-                        target="_blank" rel="noopener noreferrer"
                         title="Coded by Creative Tim"
+                        to="/home"
+                        tag={Link}
                     >
                         E-Commerce
-          </NavbarBrand>
+                     </NavbarBrand>
+
                     <button
                         aria-expanded={navbarCollapse}
                         className={classnames("navbar-toggler navbar-toggler", {
@@ -75,23 +76,26 @@ function IndexNavbar() {
                 >
                     <Nav navbar>
                         <NavItem>
-                            <NavLink
-                                href="https://demos.creative-tim.com/paper-kit-react/#/documentation?ref=pkr-index-navbar"
-                                target="_blank" rel="noopener noreferrer"
-                            >
-                                <i className="nc-icon nc-book-bookmark" /> Login
-              </NavLink>
+                            <Link to="/login">
+                                <Button
+                                    className="btn-round"
+                                    color="warning"
+                                >
+                                    Login
+                             </Button>
+
+                            </Link>
                         </NavItem>
                         <NavItem>
-                            <Button
-                                className="btn-round"
-                                color="danger"
-                                href="#pablo"
-                                target="_blank" rel="noopener noreferrer"
-                                disabled
-                            >
-                                Sign Up
+                            <Link to="/signup">
+                                <Button
+                                    className="btn-round"
+                                    color="danger"
+                                >
+                                    Sign Up
                              </Button>
+
+                            </Link>
                         </NavItem>
                     </Nav>
                 </Collapse>

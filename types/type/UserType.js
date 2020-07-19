@@ -1,13 +1,13 @@
 const {
-    GraphQLInputObjectType,
+    GraphQLObjectType,
     GraphQLString,
     GraphQLNonNull,
 
 } = require('graphql')
 
 
-module.exports = new GraphQLInputObjectType({
-    name: 'user type',
+module.exports = new GraphQLObjectType({
+    name: 'userType',
     fields: () => ({
         _id: {
             type: GraphQLNonNull(GraphQLString)

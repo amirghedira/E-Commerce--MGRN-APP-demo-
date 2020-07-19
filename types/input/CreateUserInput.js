@@ -7,7 +7,7 @@ const {
 
 
 module.exports = new GraphQLInputObjectType({
-    name: 'create user input',
+    name: 'createUserInputType',
     fields: () => ({
         username: { type: GraphQLNonNull(GraphQLString) },
         password: { type: GraphQLNonNull(GraphQLString) },

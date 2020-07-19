@@ -1,5 +1,5 @@
 const {
-    GraphQLInputObjectType,
+    GraphQLObjectType,
     GraphQLString,
     GraphQLNonNull,
     GraphQLFloat,
@@ -9,8 +9,8 @@ const {
 
 
 
-module.exports = new GraphQLInputObjectType({
-    name: 'product type',
+module.exports = new GraphQLObjectType({
+    name: 'productType',
     fields: () => ({
         _id: {
             type: GraphQLNonNull(GraphQLString)
@@ -26,6 +26,9 @@ module.exports = new GraphQLInputObjectType({
         },
         available: {
             type: GraphQLNonNull(GraphQLBoolean)
+        },
+        imageUrl: {
+            type: GraphQLNonNull(GraphQLString)
         }
     })
 })

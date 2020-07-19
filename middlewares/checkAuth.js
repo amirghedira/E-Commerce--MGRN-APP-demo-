@@ -7,14 +7,14 @@ module.exports = (req, res, next) => {
 
     if (!req.headers.authorization) {
         req.isAuth = false;
-        next()
+        return next()
     }
 
     const token = req.headers.authorization.split(' ')[1];
 
     if (!token || token == '') {
         req.isAuth = false;
-        next()
+        return next()
     }
 
     try {
@@ -26,5 +26,5 @@ module.exports = (req, res, next) => {
 
         req.isAuth = false;
     }
-    next()
+    return next()
 }

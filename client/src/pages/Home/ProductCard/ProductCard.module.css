@@ -1,0 +1,20 @@
+.cardProduct {
+
+    height: 440px;
+    margin: 40px;
+    box-shadow: inset rgba(255, 255, 255, 0.1) 0px 1px 0px, inset rgba(255, 255, 255, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.25) 0px 1px 4px;
+
+}
+
+.mainHome {
+
+    margin-top: 100px;
+    margin-bottom: 100px;
+    min-height: 80vh;
+}
+
+.productImage {
+
+    max-height: 150px;
+    max-width: 150px;
+}

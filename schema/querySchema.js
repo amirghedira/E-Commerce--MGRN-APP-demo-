@@ -9,50 +9,51 @@ const {
 
 
 const queryResolvers = require('../resolvers/queryResolvers')
-const UserType = require('../types/type/UserType')
-const ProductType = require('../types/type/ProductType')
-const OrderType = require('../types/type/OrderType')
 
-
+const { SingleOrderResponse, SingleUserResponse, SingleProductResponse, MultiProductResponse, MultiUserResponse, MultiOrderResponse, UserLoginResponse } = require('../types/type/Response')
 
 const rootQuery = new GraphQLObjectType({
     name: 'query',
     fields: () => ({
         getUsers: {
-            type: GraphQLList(UserType),
+            type: MultiUserResponse,
             resolve: queryResolvers.getUsers
         },
         getProducts: {
-            type: GraphQLList(ProductType),
+            type: MultiProductResponse,
             resolve: queryResolvers.getProducts
         },
         getUserOrders: {
-            type: GraphQLList(OrderType),
+            type: MultiOrderResponse,
             resolve: queryResolvers.getUserOrders
         },
         getUser: {
-            type: UserType,
+            type: SingleUserResponse,
             args: {
                 userId: { type: GraphQLNonNull(GraphQLString) }
             },
             resolve: queryResolvers.getUser
         },
+        getConnectedUser: {
+            type: SingleUserResponse,
+            resolve: queryResolvers.getConnectedUser
+        },
         getProduct: {
-            type: ProductType,
+            type: SingleProductResponse,
             args: {
                 productId: { type: GraphQLNonNull(GraphQLString) }
             },
             resolve: queryResolvers.getProduct
         },
         getOrder: {
-            type: OrderType,
+            type: SingleOrderResponse,
             args: {
                 orderId: { type: GraphQLNonNull(GraphQLString) }
             },
             resolve: queryResolvers.getOrder
         },
         userLogin: {
-            type: GraphQLString,
+            type: UserLoginResponse,
             args: {
                 username: { type: GraphQLNonNull(GraphQLString) },
                 password: { type: GraphQLNonNull(GraphQLString) }

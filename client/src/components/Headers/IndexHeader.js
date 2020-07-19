@@ -1,14 +1,16 @@
 
 import React from "react";
 
-import { Container } from "reactstrap";
 
 
 function IndexHeader() {
     return (
         <div
-            className="page-header section-dark"
+            className="section-dark "
             style={{
+                height: '350px',
+                backgroundPositionX: '-50px',
+                backgroundPositionY: '-150px',
                 backgroundImage:
                     "url(" + require("assets/img/headerpic.png") + ")",
             }}

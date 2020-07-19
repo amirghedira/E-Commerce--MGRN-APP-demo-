@@ -1,58 +1,59 @@
 const {
-    GraphQLSchema,
     GraphQLObjectType,
     GraphQLString,
     GraphQLNonNull,
+    GraphQLInt,
 
 } = require('graphql')
 
 
 const mutationResolvers = require('../resolvers/mutationResolvers')
 
-//types
-const UserType = require('../types/type/UserType')
-const ProductType = require('../types/type/ProductType')
-const OrderType = require('../types/type/OrderType')
 
 //input types
 
 const CreateUserInput = require('../types/input/CreateUserInput')
 const UpdateUserInput = require('../types/input/UpdateUserInput')
 const CreateProductInput = require('../types/input/CreateProductInput')
-
+const { SingleOrderResponse, SingleUserResponse, SingleProductResponse } = require('../types/type/Response')
 
 const rootMutation = new GraphQLObjectType({
     name: 'mutation',
     fields: () => ({
         createUser: {
-            type: UserType,
+            type: SingleUserResponse,
             args: {
-                createUserInput: CreateUserInput
+                createUserInput: { type: CreateUserInput }
             },
             resolve: mutationResolvers.createUser
         },
         updateUser: {
-            type: GraphQLString,
+            type: SingleUserResponse,
             args: {
-                updateUserInput: UpdateUserInput
+                updateUserInput: { type: UpdateUserInput }
             },
             resolve: mutationResolvers.updateUser
         },
         updateUserPassword: {
-            type: GraphQLString,
+            type: SingleUserResponse,
+            args: {
+                oldPassword: { type: GraphQLNonNull(GraphQLString) },
+                newPassword: { type: GraphQLNonNull(GraphQLString) }
+            },
             resolve: mutationResolvers.updateUserPassword
         },
         orderProduct: {
-            type: OrderType,
+            type: SingleOrderResponse,
             args: {
-                productId: { type: GraphQLNonNull(GraphQLString) }
+                productId: { type: GraphQLNonNull(GraphQLString) },
+                quantity: { type: GraphQLNonNull(GraphQLInt) }
             },
             resolve: mutationResolvers.orderProduct
         },
         createProduct: {
-            type: ProductType,
+            type: SingleProductResponse,
             args: {
-                createProductInput: CreateProductInput
+                createProductInput: { type: CreateProductInput }
             },
             resolve: mutationResolvers.createProduct
         }

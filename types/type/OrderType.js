@@ -1,5 +1,5 @@
 const {
-    GraphQLInputObjectType,
+    GraphQLObjectType,
     GraphQLString,
     GraphQLNonNull,
     GraphQLFloat,
@@ -10,8 +10,8 @@ const {
 const UserType = require('./UserType')
 const ProductType = require('./ProductType')
 
-module.exports = new GraphQLInputObjectType({
-    name: 'order type',
+module.exports = new GraphQLObjectType({
+    name: 'orderType',
     fields: () => ({
         _id: {
             type: GraphQLNonNull(GraphQLString)
