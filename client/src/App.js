@@ -13,14 +13,32 @@ import Profile from "pages/Profile/Profile";
 import Orders from "pages/Orders/Orders";
 import Order from "pages/Order/Order";
 import IndexHeader from "components/Headers/IndexHeader";
-import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import AppContext from "Context/AppContext";
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import Purchase from "pages/Purchase/Purchase";
 // others
 
+
+const httpLink = createHttpLink({
+    uri: 'http://localhost:5000/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+    const token = localStorage.getItem('token');
+    return {
+        headers: {
+            ...headers,
+            authorization: token ? `Bearer ${token}` : "",
+        }
+    }
+});
+
 const client = new ApolloClient({
-    uri: 'http://localhost:5000/graphql'
-})
+    link: authLink.concat(httpLink),
+    cache: new InMemoryCache(),
+});
 
 const App = () => {
     return (
@@ -37,6 +55,7 @@ const App = () => {
                         <Route path="/product/:id" component={Product} />
                         <Route path="/profile/:id" component={Profile} />
                         <Route path="/orders" component={Orders} />
+                        <Route path="/purchase/:id" component={Purchase} />
                         <Route path="/order/:id" component={Order} />
                         <Redirect to="/home" />
                     </Switch>

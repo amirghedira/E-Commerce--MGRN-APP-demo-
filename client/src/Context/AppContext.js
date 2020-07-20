@@ -1,44 +1,53 @@
 import React from 'react'
 import GlobalContext from 'Context/GlobalContext'
 import gql from 'graphql-tag'
-import { useLazyQuery } from 'react-apollo';
-const LOGIN_USER_QUERY = gql`
-query(
-  $username:String!
-  $password:String!  
-){
-  userLogin(username:$username,password:$password){
-    
-    status
-    token
+import { useQuery } from 'react-apollo'
+
+
+const FETCH_CONNECTEDUSER_QUERY = gql`
+query{
+  getConnectedUser{
     user{
-        username
-    }
-    
+      _id
+      username
+      email
+      phone
+      address
+    }   
   }
 }
 `;
+
 const AppContext = (props) => {
 
+    const [token, setToken] = React.useState(localStorage.getItem('token'))
+    const { data, loading } = useQuery(FETCH_CONNECTEDUSER_QUERY)
     const [products, setProducts] = React.useState([])
-    const [token, setToken] = React.useState(null)
+    const [user, setUser] = React.useState(null)
 
-    const [loginUser, { loading, data }] = useLazyQuery(LOGIN_USER_QUERY)
 
-    const userLoginHandler = async (username, password) => {
-        await loginUser({
-            variables: {
-                username,
-                password
-            },
-        })
-        console.log(data)
+    React.useEffect(() => {
+        if (!loading) {
+            setUser(data.getConnectedUser.user)
+        }
+
+    }, [loading, token])
+
+    const disconnectHandler = () => {
+
+        setUser(null)
+        setToken(null)
+        localStorage.removeItem('token')
 
     }
 
     return (
         <GlobalContext.Provider value={{
-            userLogin: userLoginHandler
+            token: token,
+            setToken: setToken,
+            user: user,
+            setUser: setUser,
+            disconnectUser: disconnectHandler
         }}>
             {props.children}
         </GlobalContext.Provider>

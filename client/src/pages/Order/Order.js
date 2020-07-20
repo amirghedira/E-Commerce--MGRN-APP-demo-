@@ -8,7 +8,7 @@ const Order = (props) => {
     const product = { _id: '8', title: 'produit1', description: 'this is a description', price: '22.99', image: "https://elcopcbonline.com/photos/product/4/176/4.jpg" }
     return (
         <Container className={classes.mainContainer}>
-            <Loading />
+            {/* <Loading /> */}
             <h4 style={{ marginBottom: '20px', fontWeight: 'bold', color: 'black' }}>
                 Command: #{props.match.params.id}
             </h4>

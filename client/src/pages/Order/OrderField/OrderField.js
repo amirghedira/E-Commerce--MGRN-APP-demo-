@@ -11,7 +11,7 @@ const OrderField = (props) => {
             <Col style={{ display: 'flex', justifyContent: 'center' }}>
                 <h5 style={{ margin: 0, fontWeight: '400' }}>
                     {props.icon &&
-                        <i class={props.icon} style={{ fontSize: '26px', fontWeight: 'bold', color: props.iconColor, marginRight: '10px' }}></i>}
+                        <i className={props.icon} style={{ fontSize: '26px', fontWeight: 'bold', color: props.iconColor, marginRight: '10px' }}></i>}
                     {props.value}
 
                 </h5>

@@ -11,12 +11,18 @@ import {
     NavItem,
     Nav,
     Container,
+    UncontrolledDropdown,
+    DropdownMenu,
+    DropdownToggle,
+    DropdownItem
 } from "reactstrap";
 import { Link } from "react-router-dom";
-
+import GlobalContext from '../../Context/GlobalContext'
+import Loader from 'react-loader-spinner'
 function IndexNavbar() {
     const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
     const [navbarCollapse, setNavbarCollapse] = React.useState(false);
+    const context = React.useContext(GlobalContext)
 
     const toggleNavbarCollapse = () => {
         setNavbarCollapse(!navbarCollapse);
@@ -74,30 +80,64 @@ function IndexNavbar() {
                     navbar
                     isOpen={navbarCollapse}
                 >
-                    <Nav navbar>
-                        <NavItem>
-                            <Link to="/login">
-                                <Button
-                                    className="btn-round"
-                                    color="warning"
-                                >
-                                    Login
+                    {context.token ?
+                        <Nav navbar>
+                            {
+                                context.user ?
+                                    <UncontrolledDropdown nav inNavbar>
+                                        <DropdownToggle nav caret>
+                                            {context.user.username}
+                                        </DropdownToggle>
+                                        <DropdownMenu right>
+                                            <DropdownItem tag={Link} to="/orders">
+                                                Orders
+                                            </DropdownItem>
+                                            <DropdownItem tag={Link} to={`/profile/${context.user._id}`}>
+                                                Settings
+                                    </DropdownItem>
+                                            <DropdownItem divider />
+                                            <DropdownItem onClick={context.disconnectUser}>
+                                                <strong>Disconnect</strong>
+                                            </DropdownItem>
+                                        </DropdownMenu>
+                                    </UncontrolledDropdown>
+                                    :
+                                    <Loader
+                                        style={{ margin: 'auto' }}
+                                        type="Rings"
+                                        color="#00BFFF"
+                                        height={50}
+                                        width={50}
+
+                                    />
+                            }
+                        </Nav>
+
+                        :
+                        <Nav navbar>
+                            <NavItem>
+                                <Link to="/login">
+                                    <Button
+                                        className="btn-round"
+                                        color="warning"
+                                    >
+                                        Login
                              </Button>
 
-                            </Link>
-                        </NavItem>
-                        <NavItem>
-                            <Link to="/signup">
-                                <Button
-                                    className="btn-round"
-                                    color="danger"
-                                >
-                                    Sign Up
+                                </Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link to="/signup">
+                                    <Button
+                                        className="btn-round"
+                                        color="danger"
+                                    >
+                                        Sign Up
                              </Button>
 
-                            </Link>
-                        </NavItem>
-                    </Nav>
+                                </Link>
+                            </NavItem>
+                        </Nav>}
                 </Collapse>
             </Container>
         </Navbar>

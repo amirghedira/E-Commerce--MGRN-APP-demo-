@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container, Row } from 'reactstrap'
 import classes from './Home.module.css'
-import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import Loading from 'components/Loading/Loading'

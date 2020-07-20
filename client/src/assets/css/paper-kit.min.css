@@ -76,7 +76,7 @@
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info {
     color: #fff;
-    background: #51bcda
+    background: #00BFFF
 }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success,
@@ -248,7 +248,7 @@
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-info {
-    background-color: #51bcda
+    background-color: #00BFFF
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-default {
@@ -424,11 +424,11 @@
 }
 
 .slider.slider-info .noUi-connect {
-    background-color: #51bcda
+    background-color: #00BFFF
 }
 
 .slider.slider-info .noUi-handle {
-    border-color: #51bcda
+    border-color: #00BFFF
 }
 
 .slider.slider-success .noUi-connect {
@@ -1223,8 +1223,8 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-    background-color: #51bcda;
-    border-color: #51bcda;
+    background-color: #00BFFF;
+    border-color: #00BFFF;
     color: #fff;
     opacity: 1;
     filter: alpha(opacity=100)
@@ -1281,7 +1281,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-info.btn-link {
-    color: #51bcda
+    color: #00BFFF
 }
 
 .btn-info.btn-link:hover,
@@ -1295,7 +1295,7 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-info.btn-link .caret {
-    border-top-color: #51bcda
+    border-top-color: #00BFFF
 }
 
 .btn-info .caret {
@@ -1732,8 +1732,8 @@ fieldset[disabled] .btn-outline-success.active {
 }
 
 .btn-outline-info {
-    border-color: #51bcda;
-    color: #51bcda;
+    border-color: #00BFFF;
+    color: #00BFFF;
     opacity: 1;
     filter: alpha(opacity=100)
 }
@@ -1746,9 +1746,9 @@ fieldset[disabled] .btn-outline-success.active {
 .btn-outline-info:active:hover,
 .btn-outline-info.active:focus,
 .show>.btn-outline-info.dropdown-toggle {
-    background-color: #51bcda !important;
+    background-color: #00BFFF !important;
     color: rgba(255, 255, 255, 0.8);
-    border-color: #51bcda !important
+    border-color: #00BFFF !important
 }
 
 .btn-outline-info:hover .caret,
@@ -1791,7 +1791,7 @@ fieldset[disabled] .btn-outline-info.focus,
 fieldset[disabled] .btn-outline-info:active,
 fieldset[disabled] .btn-outline-info.active {
     background-color: rgba(0, 0, 0, 0);
-    border-color: #51bcda
+    border-color: #00BFFF
 }
 
 .btn-outline-warning {
@@ -2585,7 +2585,7 @@ textarea.form-control {
 }
 
 .progress-bar-info {
-    background-color: #51bcda
+    background-color: #00BFFF
 }
 
 .progress-bar-success {
@@ -2624,7 +2624,7 @@ textarea.form-control {
 }
 
 .badge-info {
-    background-color: #51bcda
+    background-color: #00BFFF
 }
 
 .badge-success {
@@ -2710,8 +2710,8 @@ textarea.form-control {
 .pagination-info>li:first-child>span,
 .pagination-info>li:last-child>a,
 .pagination-info>li:last-child>span {
-    border: 2px solid #51bcda;
-    color: #51bcda
+    border: 2px solid #00BFFF;
+    color: #00BFFF
 }
 
 .nav-pills-info>li.active>a,
@@ -2726,8 +2726,8 @@ textarea.form-control {
 .pagination-info>li.active>span:hover,
 .pagination-info>li.active>a:focus,
 .pagination-info>li.active>span:focus {
-    background-color: #51bcda !important;
-    border-color: #51bcda !important;
+    background-color: #00BFFF !important;
+    border-color: #00BFFF !important;
     color: #fff
 }
 
@@ -2846,7 +2846,7 @@ textarea.form-control {
 
 .nav-text>li.active a,
 .nav-icons>li.active a {
-    color: #51bcda
+    color: #00BFFF
 }
 
 .nav-icons>li {
@@ -2877,7 +2877,7 @@ textarea.form-control {
 }
 
 .nav-azure>li.active a {
-    color: #51bcda
+    color: #00BFFF
 }
 
 .nav-green>li.active a {
@@ -2940,7 +2940,7 @@ textarea.form-control {
 
 .nav-pills-info .nav-item.show .nav-link,
 .nav-pills-info .nav-link.active {
-    background-color: #51bcda !important
+    background-color: #00BFFF !important
 }
 
 .nav-pills-warning .nav-item.show .nav-link,
@@ -3156,7 +3156,7 @@ blockquote small {
 
 .text-info,
 .text-info:hover {
-    color: #51bcda !important
+    color: #00BFFF !important
 }
 
 .text-success,
@@ -3245,7 +3245,7 @@ body {
 }
 
 a {
-    color: #51bcda
+    color: #00BFFF
 }
 
 a:hover,
@@ -3338,7 +3338,7 @@ input[type="file"]>input[type="button"]::-moz-focus-inner {
 }
 
 .ct-azure {
-    color: #51bcda
+    color: #00BFFF
 }
 
 .ct-green {
@@ -3496,7 +3496,7 @@ input[type="file"]>input[type="button"]::-moz-focus-inner {
 }
 
 .label-info {
-    background-color: #51bcda
+    background-color: #00BFFF
 }
 
 .label-success {
@@ -4334,12 +4334,12 @@ input[type="file"]>input[type="button"]::-moz-focus-inner {
 }
 
 .nav-pills-info .nav-item .nav-link {
-    border: 1px solid #51bcda !important;
-    color: #51bcda !important
+    border: 1px solid #00BFFF !important;
+    color: #00BFFF !important
 }
 
 .nav-pills-info .nav-item .nav-link.active {
-    border: 1px solid #51bcda !important;
+    border: 1px solid #00BFFF !important;
     color: #fff !important
 }
 
@@ -5594,7 +5594,7 @@ input[type="file"]>input[type="button"]::-moz-focus-inner {
 }
 
 .icon-info {
-    color: #51bcda
+    color: #00BFFF
 }
 
 .icon-success {
@@ -8620,7 +8620,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .slider.slider-info .noUi-connect,
 .slider.slider-info.noUi-connect {
-    background-color: #51bcda
+    background-color: #00BFFF
 }
 
 .slider.slider-success .noUi-connect,

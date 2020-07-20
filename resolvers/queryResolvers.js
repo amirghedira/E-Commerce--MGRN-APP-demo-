@@ -105,6 +105,7 @@ exports.getOrder = async (parent, args, req) => {
 exports.userLogin = async (parent, args) => {
 
     try {
+        console.log(args)
         const user = await User.findOne({ username: args.username }).exec()
         if (user) {
             let result = await bcrypt.compare(args.password, user.password)

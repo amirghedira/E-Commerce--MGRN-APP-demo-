@@ -35,12 +35,12 @@ const Orders = () => {
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row"><Link to="/order/1">1</Link></th>
                             <td>Otto</td>
                             <td><Link>Product</Link></td>
                             <td>5</td>
                             <td>50 DT</td>
-                            <td><i class="fa fa-check-circle-o" style={{ fontSize: '26px', fontWeight: 'bold', color: 'green' }}></i></td>
+                            <td><i className="fa fa-check-circle-o" style={{ fontSize: '26px', fontWeight: 'bold', color: 'green' }}></i></td>
                             <td><i style={{ fontSize: '20px', fontWeight: 'bold' }} className="fa fa-pencil-square-o"></i></td>
                         </tr>
                         <tr>
@@ -49,7 +49,7 @@ const Orders = () => {
                             <td><Link>Product</Link></td>
                             <td>5</td>
                             <td>50 DT</td>
-                            <td><i class="fa fa-times-circle-o" style={{ fontSize: '26px', fontWeight: 'bold', color: 'red' }}></i></td>
+                            <td><i className="fa fa-times-circle-o" style={{ fontSize: '26px', fontWeight: 'bold', color: 'red' }}></i></td>
                             <td><i style={{ fontSize: '20px', fontWeight: 'bold' }} className="fa fa-pencil-square-o"></i></td>
                         </tr>
                     </tbody>
