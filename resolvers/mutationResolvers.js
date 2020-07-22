@@ -67,6 +67,7 @@ exports.orderProduct = async (parent, args, req) => {
 
 
     if (req.isAuth) {
+
         const product = await Product.findById(args.productId).exec()
         if (product) {
             const newOrder = new Order({
@@ -74,16 +75,33 @@ exports.orderProduct = async (parent, args, req) => {
                 product: product._id,
                 totalPrice: args.quantity * product.price,
                 quantity: args.quantity,
-                date: new Date().toISOString()
+                date: new Date().toISOString(),
             })
-            const createdOrder = newOrder.save()
+            const createdOrder = await newOrder.save()
+            createdOrder.product = product;
             return { status: 201, order: createdOrder }
         }
         return { status: 404, order: null }
     }
-    return { status: 401, order: null }
+    return { status: 401 }
+
 }
 
+exports.updateOrder = async (parent, args, req) => {
+
+    if (req.isAuth) {
+        const order = await Order.findOne({ _id: args.orderId, user: req.user._id }).exec()
+        if (order) {
+            order.quantity = args.quantity;
+            order.totalPrice = args.quantity * order.price
+            order.status = args.status;
+            const updatedOrder = await order.save()
+            return { status: 200, order: updatedOrder }
+        }
+        return { status: 404 }
+    }
+    return { status: 401 }
+}
 
 exports.updateUserPassword = async (parent, args, req) => {
 

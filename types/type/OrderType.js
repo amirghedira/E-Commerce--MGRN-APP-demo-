@@ -31,8 +31,8 @@ module.exports = new GraphQLObjectType({
         date: {
             type: GraphQLNonNull(GraphQLString)
         },
-        complited: {
-            type: GraphQLNonNull(GraphQLBoolean)
+        status: {
+            type: GraphQLNonNull(GraphQLString)
         }
     })
 })

@@ -21,7 +21,7 @@ const ProfileField = (props) => {
 
                             </div>
                             :
-                            <Input style={{ margin: 'auto', fontSize: '16px' }} placeholder={props.value} type={props.type} />
+                            <Input style={{ margin: 'auto', fontSize: '16px' }} defaultValue={props.value} type={props.type} />
                         :
                         <h6 style={{ margin: 'auto' }}>{props.value}</h6>
                     }

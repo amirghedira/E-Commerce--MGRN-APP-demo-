@@ -50,6 +50,15 @@ const rootMutation = new GraphQLObjectType({
             },
             resolve: mutationResolvers.orderProduct
         },
+        updateOrder: {
+            type: SingleOrderResponse,
+            args: {
+                orderId: { type: GraphQLNonNull(GraphQLString) },
+                quantity: { type: GraphQLNonNull(GraphQLInt) },
+                status: { type: GraphQLNonNull(GraphQLString) },
+            },
+            resolve: mutationResolvers.updateOrder
+        },
         createProduct: {
             type: SingleProductResponse,
             args: {

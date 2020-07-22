@@ -22,7 +22,7 @@ const AppContext = (props) => {
 
     const [token, setToken] = React.useState(localStorage.getItem('token'))
     const { data, loading } = useQuery(FETCH_CONNECTEDUSER_QUERY)
-    const [products, setProducts] = React.useState([])
+    const [orders, setOrders] = React.useState([])
     const [user, setUser] = React.useState(null)
 
 
@@ -47,7 +47,9 @@ const AppContext = (props) => {
             setToken: setToken,
             user: user,
             setUser: setUser,
-            disconnectUser: disconnectHandler
+            disconnectUser: disconnectHandler,
+            setOrders: setOrders,
+            orders: orders
         }}>
             {props.children}
         </GlobalContext.Provider>

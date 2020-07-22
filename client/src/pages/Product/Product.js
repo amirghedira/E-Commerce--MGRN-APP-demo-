@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from 'reactstrap'
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks'
 import Loading from 'components/Loading/Loading';
+import { Link } from 'react-router-dom';
 
 const FETCH_PRODUCT_QUERY = gql`
 
@@ -55,7 +56,7 @@ const Product = (props) => {
                                     {data.getProduct.product.description}
                                 </pre>
                                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                    <Button color="success">
+                                    <Button color="success" tag={Link} to={`/purchase/${data.getProduct.product._id}`}>
                                         Purchase
                                 </Button>
 
