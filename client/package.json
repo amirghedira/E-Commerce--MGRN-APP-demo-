@@ -54,6 +54,7 @@
         "typescript": "3.9.5"
     },
     "devDependencies": {
+        "concurrently": "^5.2.0",
         "gulp": "4.0.2",
         "gulp-append-prepend": "1.0.8"
     }
