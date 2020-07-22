@@ -7,7 +7,6 @@
         "server": "node server.js",
         "client": "cd client && npm start",
         "start": "node_modules/.bin/concurrently \"npm run server\" \"npm run client\""
-
     },
     "author": "",
     "license": "ISC",
