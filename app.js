@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const path = require('path')
 const expressGraphql = require('express-graphql');
 const querySchema = require('./schema/querySchema')
 const mutationSchema = require('./schema/muationSchema')
