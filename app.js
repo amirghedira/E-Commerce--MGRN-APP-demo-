@@ -17,6 +17,9 @@ mongoose.connect("mongodb+srv://amirghedirq:RVaeoXZ1Lrk1U9s2@cluster0-bjmuu.mong
 })
 
 app.use(cors())
+app.use(function (req, res) {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 app.use(checkAuth)
 app.use('/graphql', expressGraphql.graphqlHTTP({
     graphiql: true,
