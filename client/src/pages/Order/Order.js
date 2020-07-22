@@ -157,7 +157,7 @@ const Order = (props) => {
                                 }
                             </Col>
                         </Row>
-                        <OrderField name="Total price" value={order.product.price * orderQuantity} />
+                        <OrderField name="Total price" value={order.product.price * orderQuantity + '$'} />
                         {
 
                             order.status === 'passed' ?

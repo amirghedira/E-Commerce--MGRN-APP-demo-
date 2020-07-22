@@ -106,7 +106,7 @@ const Purchase = (props) => {
 
                         </Col>
                     </Row>
-                    <OrderField name="Total Price" value={quantity * data.getProduct.product.price} />
+                    <OrderField name="Total Price" value={quantity * data.getProduct.product.price + '$'} />
                 </Col>
             </Row>
             <Row style={{ marginTop: '30px' }}>

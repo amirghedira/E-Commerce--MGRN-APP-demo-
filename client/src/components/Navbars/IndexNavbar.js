@@ -94,7 +94,7 @@ function IndexNavbar() {
                                             <DropdownItem tag={Link} to="/orders">
                                                 Orders
                                             </DropdownItem>
-                                            <DropdownItem tag={Link} to={`/profile/${context.user._id}`}>
+                                            <DropdownItem tag={Link} to={`/profile`}>
                                                 Settings
                                     </DropdownItem>
                                             <DropdownItem divider />

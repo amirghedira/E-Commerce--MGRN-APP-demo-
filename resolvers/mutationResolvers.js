@@ -19,11 +19,11 @@ exports.createUser = async (parent, args) => {
             const creactedUser = await newUser.save()
             return { status: 201, user: creactedUser }
         }
-        return { status: 409, user: null }
+        return { status: 409 }
 
     } catch (error) {
         console.log(error)
-        return { status: 500, user: null }
+        return { status: 500 }
 
     }
 
@@ -53,13 +53,13 @@ exports.updateUser = async (parent, args, req) => {
             if (user.username != args.updateUserInput.username) {
                 const otherUser = await User.findOne({ username: args.updateUserInput.username }).exec()
                 if (otherUser)
-                    return { status: 409, user: null }
+                    return { status: 409 }
             }
             const updatedUser = await User.findByIdAndUpdate(req.user._id, { $set: { ...args.updateUserInput } }).exec()
             return { status: 200, user: updatedUser }
 
         }
-        return { status: 401, user: null }
+        return { status: 401 }
     } catch (error) {
         console.log(error)
     }
@@ -85,7 +85,7 @@ exports.orderProduct = async (parent, args, req) => {
             createdOrder.product = product;
             return { status: 201, order: createdOrder }
         }
-        return { status: 404, order: null }
+        return { status: 404 }
     }
     return { status: 401 }
 
@@ -119,9 +119,9 @@ exports.updateUserPassword = async (parent, args, req) => {
 
                 return { status: 200, user: updatedUser }
             }
-            return { status: 401, user: null }
+            return { status: 401 }
         }
-        return { status: 404, user: null }
+        return { status: 404 }
     }
-    return { status: 401, user: null }
+    return { status: 401 }
 }

@@ -12,10 +12,10 @@ const ProductCard = (props) => {
                 <div>
                     <Link to={`/product/${props.id}`}>
                         <h4 style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-                            {props.title}
+                            <strong>{props.title}</strong>
                         </h4>
                     </Link>
-                    <h6 style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>{props.price}</h6>
+                    <h6 style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>{props.price}$</h6>
                     <Button color="success" style={{ display: 'flex', margin: 'auto', width: '110px' }} tag={Link} to={`/purchase/${props.id}`}>
                         Purchace
                     </Button>

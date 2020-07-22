@@ -9,10 +9,10 @@ exports.getUsers = async () => {
     try {
         const users = await User.find().exec();
         console.log(users)
-        return { status: 200, users: users }
+        return { status: 200 }
 
     } catch (error) {
-        return { status: 500, users: null }
+        return { status: 500 }
     }
 }
 
@@ -24,9 +24,9 @@ exports.getUserOrders = async (parent, args, req) => {
             const orders = await Order.find({ user: req.user._id }).populate('user').populate('product').exec()
             return { status: 200, orders: orders }
         }
-        return { status: 401, orders: null }
+        return { status: 401 }
     } catch (error) {
-        return { status: 500, users: null }
+        return { status: 500 }
     }
 
 }
@@ -39,7 +39,7 @@ exports.getProducts = async () => {
         const products = await Product.find().find()
         return { status: 200, products: products }
     } catch (error) {
-        return { status: 500, products: null }
+        return { status: 500 }
 
     }
 
@@ -52,10 +52,10 @@ exports.getUser = async (parent, args) => {
         const user = await User.findOne({ _id: args.userId }).exec()
         if (user)
             return { status: 200, user: user }
-        return { status: 404, user: null }
+        return { status: 404 }
     } catch (error) {
 
-        return { status: 500, user: null }
+        return { status: 500 }
     }
 
 
@@ -70,11 +70,11 @@ exports.getConnectedUser = async (parent, args, req) => {
             return { status: 200, user: connectedUser }
 
         } catch (error) {
-            return { status: 500, user: null }
+            return { status: 500 }
 
         }
     }
-    return { status: 401, user: null }
+    return { status: 401 }
 }
 
 
@@ -86,7 +86,7 @@ exports.getProduct = async (parent, args, req) => {
         return { status: 200, product: product }
 
     } catch (error) {
-        return { status: 500, product: null }
+        return { status: 500 }
     }
 }
 
@@ -101,10 +101,10 @@ exports.getOrder = async (parent, args, req) => {
             return { status: 404 }
         } catch (error) {
 
-            return { status: 500, order: null }
+            return { status: 500 }
         }
     }
-    return { status: 401, order: null }
+    return { status: 401 }
 }
 
 exports.userLogin = async (parent, args) => {
@@ -118,12 +118,12 @@ exports.userLogin = async (parent, args) => {
                 const token = jwt.sign({ _id: user._id, username: user.username }, "140e54d6fce937d08ed72453d0e9be5aba96f754325fa29b63035ed3f36949fd661d7b43eb0ce70e15fe6b2a986a5d466e8d9587b5c04e8a4cb9998595aaed4e")
                 return { status: 200, user: user, token: token }
             }
-            return { status: 401, user: null, token: null }
+            return { status: 401 }
         }
-        return { status: 401, user: null, token: null }
+        return { status: 401 }
 
     } catch (error) {
-        return { status: 500, user: null, token: null }
+        return { status: 500 }
 
     }
 

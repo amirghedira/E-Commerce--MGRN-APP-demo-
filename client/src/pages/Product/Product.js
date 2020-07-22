@@ -45,7 +45,7 @@ const Product = (props) => {
                             <Col xs="4">
                                 <img width="400" src={data.getProduct.product.imageUrl} alt="..." />
                                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                    <h5 style={{ fontWeight: 'bold', fontSize: '14px' }}> Price: {data.getProduct.product.price} DT</h5>
+                                    <h5 style={{ fontWeight: 'bold', fontSize: '14px' }}> Price: {data.getProduct.product.price}$</h5>
                                 </div>
                             </Col>
                             <Col xs="8">

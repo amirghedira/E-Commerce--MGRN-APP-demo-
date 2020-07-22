@@ -70,7 +70,7 @@ const Orders = () => {
     }, [filterOption, context.orders])
 
 
-    if (!orders)
+    if (loading)
         return <Loading />
     return (
 
@@ -113,7 +113,7 @@ const Orders = () => {
                                         <td><FormateDate>{order.date}</FormateDate></td>
                                         <td><Link to={`/product/${order.product._id}`}><strong style={{ fontWeight: 'bold' }}>{order.product.title}</strong></Link></td>
                                         <td>{order.quantity}</td>
-                                        <td>{order.totalPrice} DT</td>
+                                        <td>{order.totalPrice} $</td>
                                         <td>
                                             {
                                                 order.status === 'passed' ?
