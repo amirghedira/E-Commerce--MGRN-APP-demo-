@@ -32,14 +32,14 @@ const Login = () => {
     const history = useHistory();
     const [errorLogin, setErrorLogin] = React.useState('')
 
-    const [loginUser, { loading }] = useLazyQuery(LOGIN_USER_QUERY, {
+    const [loginUser] = useLazyQuery(LOGIN_USER_QUERY, {
         onCompleted: response => {
-            if (response.userLogin.status != 200)
+            if (response.userLogin.status !== 200)
                 setErrorLogin('wrong credentials')
             else {
+                context.setUser(response.userLogin.user)
                 localStorage.setItem('token', response.userLogin.token)
                 context.setToken(response.userLogin.token)
-                context.setUser(response.userLogin.user)
                 history.push("/home")
             }
         }

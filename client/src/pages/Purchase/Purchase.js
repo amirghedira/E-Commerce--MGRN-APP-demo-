@@ -60,7 +60,7 @@ const Purchase = (props) => {
             }
         })
 
-    const [orderProduct, { }] = useMutation(ORDER_PRODUCT_MUTATION, {
+    const [orderProduct] = useMutation(ORDER_PRODUCT_MUTATION, {
         update(proxy, response) {
             context.setOrders([...context.orders, response.data.orderProduct.order])
             history.push(`/order/${response.data.orderProduct.order._id}`)
@@ -75,6 +75,8 @@ const Purchase = (props) => {
     })
     const validateCommandHandler = () => {
 
+        if (!context.token)
+            history.push('/login/')
         orderProduct()
 
 

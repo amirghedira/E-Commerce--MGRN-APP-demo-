@@ -24,6 +24,7 @@ function IndexNavbar() {
     const [navbarCollapse, setNavbarCollapse] = React.useState(false);
     const context = React.useContext(GlobalContext)
 
+
     const toggleNavbarCollapse = () => {
         setNavbarCollapse(!navbarCollapse);
         document.documentElement.classList.toggle("nav-open");
@@ -83,6 +84,7 @@ function IndexNavbar() {
                     {context.token ?
                         <Nav navbar>
                             {
+
                                 context.user ?
                                     <UncontrolledDropdown nav inNavbar>
                                         <DropdownToggle nav caret>

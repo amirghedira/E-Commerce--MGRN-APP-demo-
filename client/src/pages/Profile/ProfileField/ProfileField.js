@@ -21,9 +21,9 @@ const ProfileField = (props) => {
 
                             </div>
                             :
-                            <Input style={{ margin: 'auto', fontSize: '16px' }} defaultValue={props.value} type={props.type} />
+                            <Input id={props.id} style={{ margin: 'auto', fontSize: '16px' }} defaultValue={props.value} type={props.type} />
                         :
-                        <h6 style={{ margin: 'auto' }}>{props.value}</h6>
+                        <h6 id={props.id} style={{ margin: 'auto' }}>{props.value}</h6>
                     }
 
                 </div>
@@ -32,9 +32,19 @@ const ProfileField = (props) => {
             <Col style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
 
                 {status ? <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <Button color="success" style={{ marginLeft: '20px', marginRight: '10px' }}>
+                    <Button color="success" style={{ marginLeft: '20px', marginRight: '10px' }}
+                        onClick={() => {
+                            setStatus(false);
+                            props.updateUser({
+                                username: document.getElementById('username').value,
+                                phone: document.getElementById('phone').value,
+                                email: document.getElementById('email').value,
+                                address: document.getElementById('address').value,
+
+                            })
+                        }}>
                         Save
-                            </Button>
+                    </Button>
                     <Button color="danger" onClick={() => { setStatus(false) }}>
                         Cancel
                             </Button>

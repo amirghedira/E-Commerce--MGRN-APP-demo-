@@ -31,7 +31,7 @@ const AppContext = (props) => {
             setUser(data.getConnectedUser.user)
         }
 
-    }, [loading, token])
+    }, [loading, data])
 
     const disconnectHandler = () => {
 

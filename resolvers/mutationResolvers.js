@@ -46,19 +46,23 @@ exports.createProduct = async (parent, args) => {
 
 exports.updateUser = async (parent, args, req) => {
 
-    if (req.isAuth) {
-        const user = await User.findById(req.user._id).exec()
-        if (user.username != args.updateUserInput.username) {
-            const otherUser = await User.findOne({ username: args.updateUserInput.username }).exec()
-            if (otherUser)
-                return { status: 409, user: null }
+    try {
+
+        if (req.isAuth) {
+            const user = await User.findById(req.user._id).exec()
+            if (user.username != args.updateUserInput.username) {
+                const otherUser = await User.findOne({ username: args.updateUserInput.username }).exec()
+                if (otherUser)
+                    return { status: 409, user: null }
+            }
+            const updatedUser = await User.findByIdAndUpdate(req.user._id, { $set: { ...args.updateUserInput } }).exec()
+            return { status: 200, user: updatedUser }
+
         }
-        const updatedUser = await User.findByIdAndUpdate(req.user._id, { $set: { ...args.updateUserInput } }).exec()
-        return { status: 200, user: updatedUser }
-
-
+        return { status: 401, user: null }
+    } catch (error) {
+        console.log(error)
     }
-    return { status: 401, user: null }
 
 
 }
@@ -90,10 +94,10 @@ exports.orderProduct = async (parent, args, req) => {
 exports.updateOrder = async (parent, args, req) => {
 
     if (req.isAuth) {
-        const order = await Order.findOne({ _id: args.orderId, user: req.user._id }).exec()
+        const order = await Order.findOne({ _id: args.orderId, user: req.user._id }).populate('product').exec()
         if (order) {
             order.quantity = args.quantity;
-            order.totalPrice = args.quantity * order.price
+            order.totalPrice = +args.quantity * +order.product.price
             order.status = args.status;
             const updatedOrder = await order.save()
             return { status: 200, order: updatedOrder }
