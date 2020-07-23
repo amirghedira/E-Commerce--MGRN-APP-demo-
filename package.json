@@ -2,7 +2,7 @@
     "name": "e-commerce-demo-mgrn",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
         "heroku-postbuild": "cd client && npm install && npm run build ",
         "client-install": "npm install --prefix client",
