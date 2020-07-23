@@ -18,14 +18,6 @@ mongoose.connect("mongodb+srv://amirghedirq:RVaeoXZ1Lrk1U9s2@cluster0-bjmuu.mong
 })
 
 app.use(cors())
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client/build')));
-    //
-    app.get('*', (req, res) => {
-        res.sendfile(path.join(__dirname = 'client/build/index.html'));
-    })
-}
-
 app.use(checkAuth)
 app.use('/graphql', expressGraphql.graphqlHTTP({
     graphiql: true,
