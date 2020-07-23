@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.45d01f5e.chunk.css",
+    "main.js": "/static/js/main.397ffb24.chunk.js",
+    "main.js.map": "/static/js/main.397ffb24.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f693082c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f693082c.js.map",
+    "static/js/2.2c8f182e.chunk.js": "/static/js/2.2c8f182e.chunk.js",
+    "static/js/2.2c8f182e.chunk.js.map": "/static/js/2.2c8f182e.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.619efd7fb90342d51146b95b166c4fde.js": "/precache-manifest.619efd7fb90342d51146b95b166c4fde.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.45d01f5e.chunk.css.map": "/static/css/main.45d01f5e.chunk.css.map",
+    "static/js/2.2c8f182e.chunk.js.LICENSE.txt": "/static/js/2.2c8f182e.chunk.js.LICENSE.txt",
+    "static/media/headerpic.png": "/static/media/headerpic.4fb45315.png",
+    "static/media/paper-kit.scss?v=1.2.0": "/static/media/nucleo-icons.f32ed5ad.eot"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f693082c.js",
+    "static/js/2.2c8f182e.chunk.js",
+    "static/css/main.45d01f5e.chunk.css",
+    "static/js/main.397ffb24.chunk.js"
+  ]
+}
