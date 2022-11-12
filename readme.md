@@ -1,6 +1,7 @@
 # Overview 
 
  This application is a MGRN stack which is a `React` application in the front side and `Nodejs` which `GrapQL` in the back end.
+
 This application serves as a basic E-commerce store that list products from an admin dashboard. Also, clients can create accounts and make an order on different products available on the site.
 
 # Frontend
