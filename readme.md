@@ -25,6 +25,33 @@ This application serves as a basic E-commerce store that list products from an a
 ## Admin dashboard
 ![dashboard](https://amirplatform.s3.eu-central-1.amazonaws.com/project/wmaikhjpdkszg5l5gfoq.png)
 
+#Backend
+## GraphQL Queries:
+
+This API exposes these queries (a query in GraphQL means a request that doesn't save or store anything on the database, usually for getting data):
+![queries](https://amirplatform.s3.eu-central-1.amazonaws.com/project/1668287611558-Screenshot%202022-11-12%20at%2022.12.32.png)
+
+* `getUsers`: retrieve all users.
+* `getProducts`: retrieve all products.
+* `getUser`: get a specific user based on an ID.
+* `getConnectedUser`: get connected user based on the access token.
+* `getProduct`: get a specific product based on an ID
+* `getOrder`: get a specific order based on an ID
+* `userLogin`: authentificate the user and returns the access token whenever the authentication succeeds.
+
+## GraphQL Mutations:
+
+This API exposes these mutations (a mutation in GraphQL means a request that affect the database, usually for saving, deleting or updating data):
+
+![mutations](https://amirplatform.s3.eu-central-1.amazonaws.com/project/1668287611567-Screenshot%202022-11-12%20at%2022.12.43.png)
+
+* `createUser`: create a user account
+* `updateUser`: update user informations
+* `updateUserPassword`: update user password
+* `orderProduct`: create an order for a specific product
+* `updateOrder`: update the order status (an order has multiple status) (accessible by the admin only)
+* `createProduct`: create a product (accessible by the admin only)
+
 
 
 
