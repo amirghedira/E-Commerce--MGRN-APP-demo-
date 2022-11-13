@@ -10,7 +10,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 
-mongoose.connect("mongodb+srv://amirghedirq:RVaeoXZ1Lrk1U9s2@cluster0-bjmuu.mongodb.net/Commerce_demo?retryWrites=true&w=majority", {
+mongoose.connect(process.ENV.MONGO_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 }).catch(err => {
