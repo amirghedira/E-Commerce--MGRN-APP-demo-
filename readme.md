@@ -5,30 +5,38 @@
 This application serves as a basic E-commerce store that list products from an admin dashboard. Also, clients can create accounts and make an order on different products available on the site.
 
 # Launch the project
-## backend
+
 To launch the project, you have to first add a `.env` file in the root directory that will hold the environment variables of the backend. You can find a `.env.example` folder as reference for the environment variables used.
 
-After adding a `.env` file you have to install the NodeJS packages on the backend (the project holds both the frontend under the client folder and the backend in the root directory of the project)
+## Using Docker
+Note: Docker must be installed on your machine.
+To launch the project (frontend and backend), simply run:
+```bash
+docker-compose -f docker-compose-local.yml up --build --force-recreate
+```
+## Manually
+### backend
+After adding a `.env` file, you have to install the NodeJS packages on the backend (the project holds both the frontend under the client folder and the backend in the root directory of the project)
 
-To install the backend Node packages simply run:
+To install the backend Node packages, simply run:
 ``` bash
 npm install
 ```
-To run the backend server run:
+To run the backend server, run:
 ``` bash
 npm start
 ```
-To run the backend server in development mode run:
+To run the backend server in development mode, run:
 ``` bash
 npm start:dev
 ```
 Note that the server will listen on port `5000`
-## frontend
+### frontend
 Navigate to the client folder by running:
 ``` bash
 cd client
 ```
-Then to install the frontend packages run:
+Then to install the frontend packages, run:
 ``` bash
 npm install
 ```
@@ -72,7 +80,7 @@ This API exposes these queries (a query in GraphQL means a request that doesn't 
 * `getConnectedUser`: get connected user based on the access token.
 * `getProduct`: get a specific product based on an ID
 * `getOrder`: get a specific order based on an ID
-* `userLogin`: authentificate the user and returns the access token whenever the authentication succeeds.
+* `userLogin`: authenticate the user and returns the access token whenever the authentication succeeds.
 
 ### GraphQL Mutations:
 
@@ -81,7 +89,7 @@ This API exposes these mutations (a mutation in GraphQL means a request that aff
 ![mutations](https://amirplatform.s3.eu-central-1.amazonaws.com/project/1668287611567-Screenshot%202022-11-12%20at%2022.12.43.png)
 
 * `createUser`: create a user account
-* `updateUser`: update user informations
+* `updateUser`: update user information
 * `updateUserPassword`: update user password
 * `orderProduct`: create an order for a specific product
 * `updateOrder`: update the order status (an order has multiple status) (accessible by the admin only)
