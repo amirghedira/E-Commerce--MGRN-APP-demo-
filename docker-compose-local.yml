@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  e_commerce_ui:
+    restart: always
+    container_name: e_commerce_ui
+    image: e_commerce_ui:latest
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    networks:
+      - e_commerce
+    ports:
+      - "80:80"
+  e_commerce_api:
+    restart: always
+    container_name: e_commerce_api
+    image: e_commerce_api:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - e_commerce
+    env_file: 
+      - .env
+    ports:
+      - "5000:5000"
+
+networks:
+  e_commerce:
+    driver: bridge

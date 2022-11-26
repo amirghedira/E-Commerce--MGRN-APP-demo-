@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  e_commerce_ui_prod:
+    restart: always
+    container_name: e_commerce_ui_prod
+    image: ${REGISTRY_IMAGE}/${IMAGE_NAME}:${VERSION}
+    networks:
+      - e_commerce_prod
+    env_file: 
+      - .env
+    ports:
+      - "80:80"
+  e_commerce_api_prod:
+    restart: always
+    container_name: e_commerce_api_prod
+    image: ${REGISTRY_IMAGE}/${IMAGE_NAME}:${VERSION}
+    networks:
+      - e_commerce_prod
+    env_file: 
+      - .env
+    ports:
+      - "5000:5000"
+
+networks:
+  e_commerce_prod:
+    driver: bridge
